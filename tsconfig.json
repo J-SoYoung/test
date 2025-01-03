@@ -13,6 +13,9 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "allowSyntheticDefaultImports": true,  // 이 부분을 추가하거나 true로 변경
+    "esModuleInterop": true,  // 함께 설정하면 호환성이 더욱 좋아짐
+
 
     /* Linting */
     "strict": true,

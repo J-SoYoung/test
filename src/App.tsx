@@ -1,6 +1,8 @@
 import PWABadge from "./PWABadge.tsx";
 import "./App.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { database } from "./firebase.ts";
+import { get, ref } from "firebase/database";
 
 function App() {
   // const searchBooks = async () => {
@@ -27,14 +29,21 @@ function App() {
   //     console.error("Error:", error);
   //   }
   // };
+  const [data, setData] = useState<string>("");
 
   useEffect(() => {
     // searchBooks();
+    const fetchFunction = async () => {
+      const dataRef = ref(database, `username`);
+      const dataSnapshot = await get(dataRef);
+      setData(dataSnapshot.val() as string);
+    };
+    fetchFunction();
   }, []);
 
   return (
     <>
-      <div>이야이야</div>
+      <div>{data}</div>
       <h1>vite-project</h1>
 
       <PWABadge />
