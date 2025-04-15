@@ -1,53 +1,14 @@
-import PWABadge from "./PWABadge.tsx";
 import "./App.css";
-import { useEffect, useState } from "react";
-import { database } from "./firebase.ts";
-import { get, ref } from "firebase/database";
 
 function App() {
-  // const searchBooks = async () => {
-  //   try {
-  //     const response = await fetch(
-  //       "/search/book?query=주식&display=10&start=1&sort=sim",
-  //       {
-  //         method: "GET",
-  //         headers: {
-  //           "X-Naver-Client-Id": import.meta.env.VITE_APP_NAVER_CLIENT_ID,
-  //           "X-Naver-Client-Secret": import.meta.env
-  //             .VITE_APP_NAVER_CLIENT_SECRET
-  //         }
-  //       }
-  //     );
-
-  //     if (!response.ok) {
-  //       throw new Error(`HTTP error! status: ${response.status}`);
-  //     }
-
-  //     const data = await response.json();
-  //     console.log(data);
-  //   } catch (error) {
-  //     console.error("Error:", error);
-  //   }
-  // };
-  const [data, setData] = useState<string>("");
-
-  useEffect(() => {
-    // searchBooks();
-    const fetchFunction = async () => {
-      const dataRef = ref(database, `username`);
-      const dataSnapshot = await get(dataRef);
-      setData(dataSnapshot.val() as string);
-    };
-    fetchFunction();
-  }, []);
-
   return (
-    <>
-      <div>{data}</div>
-      <h1>vite-project</h1>
-
-      <PWABadge />
-    </>
+    <div className="app__container">
+      What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and
+      typesetting industry. Lorem Ipsum has been the industry's standard dummy
+      text ever since the 1500s, when an unknown printer took a galley of type
+      and scrambled it to make a type specimen book. It has survived not only
+      five centuries,
+    </div>
   );
 }
 
