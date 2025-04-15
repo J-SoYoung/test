@@ -1,0 +1,27 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  box-sizing: border-box;
+}
+.categories {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* mobile: 하단에 navbar 따로 배치 */
+@media (max-width: 480px) {
+  .search {
+    display: none;
+  }
+}
+
+/* tablet: nav + 검색 포함 */
+@media (min-width: 481px) and (max-width: 1279px) {
+  .search {
+    display: block;
+  }
+}

@@ -1,0 +1,9 @@
+.desktop__layout {
+  display: flex;
+}
+.desktop__content {
+  flex-direction: column;
+}
+.mobile__layout {
+  min-height: 100vh;
+}
